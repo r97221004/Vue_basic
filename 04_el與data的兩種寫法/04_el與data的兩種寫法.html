@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>el 與 data 的兩種寫法</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+			data 與 el 的 2 種寫法
+					1.el 有 2 種寫法
+									(1).new Vue 時候配置 el 屬性。
+									(2).先創建 Vue 實例，隨後再通過 vm.$mount('#root') 指定 el 的值。
+					2.data 有 2 種寫法
+									(1).對象式
+									(2).函數式
+									如何選擇：目前哪種寫法都可以，以後學習到組件時，data 必須使用函數式，否則會報錯。
+					3.一個重要的原則：
+									由 Vue 管理的函數，一定不要寫箭頭函數，一旦寫了箭頭函數，this 就不再是 Vue 實例了。
+		-->
+    <!-- 準備好一個容器-->
+    <div id="root">
+        <h1>你好，{{name}}</h1>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false //阻止 vue 在啟動時生成生產提示。
+
+    //el的兩種寫法
+    /* const v = new Vue({
+        //el:'#root', //第一種寫法
+        data:{
+            name:'尚矽谷'
+        }
+    })
+    console.log(v)
+    v.$mount('#root') //第二種寫法 */
+
+    //data的兩種寫法
+    new Vue({
+        el: '#root',
+        //data的第一種寫法：對象式
+        /* data:{
+            name:'尚矽谷'
+        } */
+
+        //data的第二種寫法：函數式
+        data() {
+            console.log('@@@', this) //此處的 this 是 Vue 實例對象
+            return {
+                name: '尚矽谷'
+            }
+        }
+    })
+</script>
+
+</html>

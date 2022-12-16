@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue監測數據改變的原理</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 準備好一個容器-->
+    <div id="root">
+        <h2>學校名稱：{{name}}</h2>
+        <h2>學校地址：{{address}}</h2>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false //阻止 vue 在啟動時生成生產提示。
+
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            name: '尚矽谷',
+            address: '北京',
+            student: {
+                name: 'tom',
+                age: {
+                    rAge: 40,
+                    sAge: 29,
+                },
+                friends: [
+                    { name: 'jerry', age: 35 }
+                ]
+            }
+        }
+    })
+</script>
+
+</html>
