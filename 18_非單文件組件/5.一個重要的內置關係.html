@@ -23,14 +23,14 @@
     Vue.config.productionTip = false //阻止 vue 在啟動時生成生產提示。
     Vue.prototype.x = 99
 
-    //定義school組件
+    //定義 school 組件
     const school = Vue.extend({
         name: 'school',
         template: `
 				<div>
 					<h2>學校名稱：{{name}}</h2>	
 					<h2>學校地址：{{address}}</h2>	
-					<button @click="showX">點我輸出x</button>
+					<button @click="showX">點我輸出 x</button>
 				</div>
 			`,
         data() {
@@ -46,7 +46,7 @@
         },
     })
 
-    //創建一個vm
+    //創建一個 vm
     const vm = new Vue({
         el: '#root',
         data: {
@@ -70,7 +70,7 @@
 
     console.log(Demo.prototype === d.__proto__)
 
-    //程序員通過顯示原型屬性操作原型對象，追加一個x屬性，值為99
+    //程序員通過顯示原型屬性操作原型對象，追加一個 x 屬性，值為 99
     Demo.prototype.x = 99
 
     console.log('@',d) */
