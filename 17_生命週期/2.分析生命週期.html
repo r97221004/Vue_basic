@@ -12,9 +12,9 @@
     <!-- 準備好一個容器-->
     <div id="root" :x="n">
         <h2 v-text="n"></h2>
-        <h2>當前的n值是：{{n}}</h2>
-        <button @click="add">點我n+1</button>
-        <button @click="bye">點我銷毀vm</button>
+        <h2>當前的 n 值是：{{n}}</h2>
+        <button @click="add">點我 n+1</button>
+        <button @click="bye">點我銷毀 vm</button>
     </div>
 </body>
 
@@ -25,8 +25,8 @@
         el: '#root',
         // template:`
         // 	<div>
-        // 		<h2>當前的n值是：{{n}}</h2>
-        // 		<button @click="add">點我n+1</button>
+        // 		<h2>當前的 n 值是：{{n}}</h2>
+        // 		<button @click="add">點我 n+1</button>
         // 	</div>
         // `,
         data: {
@@ -44,7 +44,7 @@
         },
         watch: {
             n() {
-                console.log('n變了')
+                console.log('n 變了')
             }
         },
         beforeCreate() {

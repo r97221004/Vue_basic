@@ -11,18 +11,18 @@
 <body>
     <!-- 
 				常用的生命周期鉤子：
-						1.mounted: 發送ajax請求、啟動定時器、綁定自定義事件、訂閱消息等【初始化操作】。
+						1.mounted: 發送 ajax 請求、啟動定時器、綁定自定義事件、訂閱消息等【初始化操作】。
 						2.beforeDestroy: 清除定時器、解綁自定義事件、取消訂閱消息等【收尾工作】。
 
-				關於銷毀Vue實例
-						1.銷毀後借助Vue開發者工具看不到任何信息。
-						2.銷毀後自定義事件會失效，但原生DOM事件依然有效。
-						3.一般不會在beforeDestroy操作數據，因為即便操作數據，也不會再觸發更新流程了。
+				關於銷毀 Vue 實例
+						1.銷毀後借助 Vue 開發者工具看不到任何信息。
+						2.銷毀後自定義事件會失效，但原生 DOM 事件依然有效。
+						3.一般不會在 beforeDestroy 操作數據，因為即便操作數據，也不會再觸發更新流程了。
 		-->
     <!-- 準備好一個容器-->
     <div id="root">
-        <h2 :style="{opacity}">歡迎學習Vue</h2>
-        <button @click="opacity = 1">透明度設置為1</button>
+        <h2 :style="{opacity}">歡迎學習 Vue</h2>
+        <button @click="opacity = 1">透明度設置為 1</button>
         <button @click="stop">點我停止變換</button>
     </div>
 </body>
@@ -30,7 +30,7 @@
 <script type="text/javascript">
     Vue.config.productionTip = false //阻止 vue 在啟動時生成生產提示。
 
-    new Vue({
+    const vm = new Vue({
         el: '#root',
         data: {
             opacity: 1
@@ -40,7 +40,7 @@
                 this.$destroy()
             }
         },
-        //Vue完成模板的解析並把初始的真實DOM元素放入頁面後（掛載完畢）調用mounted
+        //Vue 完成模板的解析並把初始的真實 DOM 元素放入頁面後（掛載完畢）調用 mounted
         mounted() {
             console.log('mounted', this)
             this.timer = setInterval(() => {
@@ -51,7 +51,7 @@
         },
         beforeDestroy() {
             clearInterval(this.timer)
-            console.log('vm即將駕鶴西遊了')
+            console.log('vm 即將駕鶴西遊了')
         },
     })
 
