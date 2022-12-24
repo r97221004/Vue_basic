@@ -15,13 +15,13 @@
 
 <body>
     <!--
-			Vue監視數據的原理：
-				1. vue會監視data中所有層次的數據。
+			Vue 監視數據的原理：
+				1. vue 會監視 data 中所有層次的數據。
 
 				2. 如何監測對象中的數據？
-								通過setter實現監視，且要在new Vue時就傳入要監測的數據。
-									(1).對象中後追加的屬性，Vue默認不做響應式處理
-									(2).如需給後添加的屬性做響應式，請使用如下API：
+								通過 setter 實現監視，且要在 new Vue 時就傳入要監測的數據。
+									(1).對象中後追加的屬性，Vue 默認不做響應式處理
+									(2).如需給後添加的屬性做響應式，請使用如下 API：
 													Vue.set(target，propertyName/index，value) 或 
 													vm.$set(target，propertyName/index，value)
 
@@ -30,23 +30,23 @@
 										(1).調用原生對應的方法對數組進行更新。
 										(2).重新解析模板，進而更新頁面。
 
-				4.在Vue修改數組中的某個元素一定要用如下方法：
-							1.使用這些API:push()、pop()、shift()、unshift()、splice()、sort()、reverse()
+				4.在 Vue 修改數組中的某個元素一定要用如下方法：
+							1.使用這些 API:push()、pop()、shift()、unshift()、splice()、sort()、reverse()
 							2.Vue.set() 或 vm.$set()
 				
-				特別註意：Vue.set() 和 vm.$set() 不能給vm 或 vm的根數據對象 添加屬性！！！
+				特別注意：Vue.set() 和 vm.$set() 不能給 vm 或 vm 的根數據對象 添加屬性！！！
 		-->
     <!-- 準備好一個容器-->
     <div id="root">
         <h1>學生信息</h1>
-        <button @click="student.age++">年齡+1歲</button> <br />
+        <button @click="student.age++">年齡 +1 歲</button> <br />
         <button @click="addSex">添加性別屬性，默認值：男</button> <br />
         <button @click="student.sex = '未知' ">修改性別</button> <br />
         <button @click="addFriend">在列表首位添加一個朋友</button> <br />
         <button @click="updateFirstFriendName">修改第一個朋友的名字為：張三</button> <br />
         <button @click="addHobby">添加一個愛好</button> <br />
         <button @click="updateHobby">修改第一個愛好為：開車</button> <br />
-        <button @click="removeSmoke">過濾掉愛好中的抽煙</button> <br />
+        <button @click="removeSmoke">過濾掉愛好中的喝酒</button> <br />
         <h3>姓名：{{student.name}}</h3>
         <h3>年齡：{{student.age}}</h3>
         <h3 v-if="student.sex">性別：{{student.sex}}</h3>
@@ -102,7 +102,7 @@
             },
             removeSmoke() {
                 this.student.hobby = this.student.hobby.filter((h) => {
-                    return h !== '抽煙'
+                    return h !== '喝酒'
                 })
             }
         }
